@@ -36,6 +36,11 @@ void ScreenManager::Flip()
 	}
 	std::cout << std::endl;
 
+	//printf("%*s%-4d\n", ScreenManager::col - 3, "LogicFPS : ", FPSManager::currentLogicFPS);
+	//printf("%*s%-4d\n", ScreenManager::col - 3, "RenderFPS : ", FPSManager::currentRenderFPS);
+	//printf("%*s%-4d\n", ScreenManager::col - 3, "ObjectCount : ", ObjectManager::objectCount);
+	//printf("%*s%-4d\n", ScreenManager::col - 3, "HP : ", ObjectManager::GetInstance().GetPlayerHP());
+	 
 	printf("LogicFPS : %-5d\n", FPSManager::currentLogicFPS);
 	printf("RenderFPS : %-5d\n", FPSManager::currentRenderFPS);
 	printf("ObjectCount : %-20d", ObjectManager::objectCount);

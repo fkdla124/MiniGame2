@@ -5,6 +5,7 @@
 #include "ObjectManager.h"
 #include "FPSManager.h"
 #include "TimeManager.h"
+#include "SceneManager.h"
 
 class GameScene : public BaseScene
 {
@@ -22,4 +23,5 @@ private:
 	ObjectManager& objectManager;
 	FPSManager& fpsManager;
 	TimeManager& timeManager;
+	SceneManager& sceneManager;
 };

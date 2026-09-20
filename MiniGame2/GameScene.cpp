@@ -1,10 +1,13 @@
 ﻿#include "GameScene.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "GameClearScene.h"
+#include "GameOverScene.h"
 
 GameScene::GameScene() : 
 	screenManager(ScreenManager::GetInstance()), objectManager(ObjectManager::GetInstance()),
-	fpsManager(FPSManager::GetInstance()), timeManager(TimeManager::GetInstance()) { }
+	fpsManager(FPSManager::GetInstance()), timeManager(TimeManager::GetInstance()),
+	sceneManager(SceneManager::GetInstance()) { }
 
 
 bool GameScene::Update()
@@ -12,8 +15,16 @@ bool GameScene::Update()
 	// 로직에 쓰일 deltaTime 갱신
 	timeManager.Update();
 
-	// 로직 및 로직FPS 처리.
+	// 로직 처리
 	objectManager.Update();
+	
+	// 게임 클리어/오버 체크
+	if (objectManager.CheckGameClear())
+		sceneManager.LoadScene(new GameClearScene);
+	if (objectManager.CheckGameOver())
+		sceneManager.LoadScene(new GameOverScene);
+
+	// 로직FPS
 	fpsManager.UpdateLogicFPS();
 
 	// 렌더 및 렌더FPS

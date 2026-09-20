@@ -49,7 +49,4 @@ void EnemyBullet::OnCollision(BaseObject* object)
 			static_cast<Player*>(object)->TakeDamage(damage);
 			break;
 	}
-
-	if (ObjectManager::GetInstance().CheckGameOver())
-		SceneManager::GetInstance().LoadScene(new GameOverScene);
 }

@@ -49,9 +49,4 @@ void PlayerBullet::OnCollision(BaseObject* object)
 			static_cast<Enemy*>(object)->TakeDamage(damage);
 			break;
 	}
-
-	if (ObjectManager::GetInstance().CheckGameClear())
-	{
-		SceneManager::GetInstance().LoadScene(new GameClearScene);
-	}
 }
