@@ -10,7 +10,11 @@
 
 Player::Player(int row, int col)
 	: BaseObject(row, col, ObjectType::Player),
-	hp(5), moveTimer(0), moveSpeed(20), shotTimer(0.0f), shotCooldown(0.1f) {}
+	hp(5), 
+	moveTimer(0), 
+	moveSpeed(20), 
+	shotTimer(0.0f), 
+	shotCooldown(0.1f) {}
 
 void Player::Update()
 {

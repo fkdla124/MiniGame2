@@ -50,3 +50,13 @@ bool ExitScene::Update()
 	// 리턴 경고 제거용 실행되지 않는 곳.
 	return true;
 }
+
+void ExitScene::OnInit()
+{
+
+}
+
+void ExitScene::OnDestroy()
+{
+	objectManager.Clear();
+}

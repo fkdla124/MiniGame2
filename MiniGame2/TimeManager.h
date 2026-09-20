@@ -18,8 +18,10 @@ private:
 	TimeManager(const TimeManager&) = delete;
 	TimeManager& operator=(const TimeManager&) = delete;
 
+private:
 	LARGE_INTEGER gameReferenceTsc;
 	LARGE_INTEGER freq;
 
+private:
 	static TimeManager instance;
 };

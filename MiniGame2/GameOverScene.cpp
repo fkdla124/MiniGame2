@@ -47,3 +47,13 @@ bool GameOverScene::Update()
 	// Keep Update
 	return true;
 }
+
+void GameOverScene::OnInit()
+{
+
+}
+
+void GameOverScene::OnDestroy()
+{
+	objectManager.Clear();
+}

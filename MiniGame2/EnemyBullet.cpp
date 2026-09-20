@@ -1,4 +1,4 @@
-#include "EnemyBullet.h"
+﻿#include "EnemyBullet.h"
 #include "FPSManager.h"
 #include "ScreenManager.h"
 #include "SceneManager.h"
@@ -6,7 +6,10 @@
 #include "Player.h"
 
 EnemyBullet::EnemyBullet(int row, int col)
-	: BaseObject(row, col, ObjectType::EnemyBullet), damage(1), moveTimer(0), moveSpeed(10) {}
+	: BaseObject(row, col, ObjectType::EnemyBullet), 
+	damage(1), 
+	moveTimer(0), 
+	moveSpeed(15) {}
 
 void EnemyBullet::Update()
 {

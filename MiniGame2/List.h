@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include <cassert>
 #include <initializer_list>
-#include <iostream>
 
 template <typename T>
 class List
@@ -209,7 +208,7 @@ public:
 		_head._next = &_tail;
 		_tail._prev = &_head;
 
-		for (auto it = iList.begin(); it != iList.end(); ++it)
+		for (Iterator it = iList.begin(); it != iList.end(); ++it)
 		{
 			push_back(*it);
 		}
@@ -393,7 +392,7 @@ public:
 	Iterator insert(Iterator where, std::initializer_list<T> iList)
 	{
 		Iterator ret;
-		for (auto it = iList.begin(); it != iList.end(); ++it)
+		for (Iterator it = iList.begin(); it != iList.end(); ++it)
 		{
 			ret = insert(where, *it);
 		}
@@ -509,28 +508,6 @@ public:
 			}
 		}
 	}
-
-	// 디버깅용
-	//void print()
-	//{
-	//	if (empty())
-	//	{
-	//		std::cout << "list empty : " << std::boolalpha << empty() << "\n";
-	//		std::cout << "list size : " << size() << "\n";
-	//		std::cout << "\n\n";
-	//		return;
-	//	}
-
-	//	std::cout << "list empty : " << std::boolalpha << empty() << "\n";
-	//	std::cout << "list size : " << size() << "\n";
-	//	std::cout << "list front : " << front() << "\n";
-	//	std::cout << "list back : " << back() << "\n";
-	//	for (auto it = begin(); it != end(); ++it)
-	//	{
-	//		std::cout << *it << " ";
-	//	}
-	//	std::cout << "\n\n";
-	//}
 
 private:
 	size_t _size = 0;

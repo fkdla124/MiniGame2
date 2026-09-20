@@ -6,7 +6,10 @@
 #include "Enemy.h"
 
 PlayerBullet::PlayerBullet(int row, int col)
-	: BaseObject(row, col, ObjectType::PlayerBullet), moveTimer(0), moveSpeed(25), damage(1) {}
+	: BaseObject(row, col, ObjectType::PlayerBullet), 
+	moveTimer(0),
+	moveSpeed(30),
+	damage(1) {}
 
 void PlayerBullet::Update()
 {

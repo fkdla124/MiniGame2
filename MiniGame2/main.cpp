@@ -1,6 +1,4 @@
 ﻿#include "SceneManager.h"
-#include "ConsoleManager.h"
-#include "ScreenManager.h"
 
 int main()
 {

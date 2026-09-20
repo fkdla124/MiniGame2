@@ -14,6 +14,7 @@ TimeManager::TimeManager()
 	QueryPerformanceCounter(&gameReferenceTsc);
 }
 
+// 매 프레임 deltaTime 업데이트
 void TimeManager::Update()
 {
 	LARGE_INTEGER currTsc;

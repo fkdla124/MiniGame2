@@ -10,11 +10,9 @@ public:
 
 	void Update() override;
 	void Render() override;
-
 	void OnCollision(BaseObject* object) override;
 
 	void TakeDamage(int damage);
-
 	int GetHP();
 
 private:

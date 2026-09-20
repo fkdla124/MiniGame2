@@ -10,9 +10,12 @@ class GameScene : public BaseScene
 {
 public:
 	GameScene();
-	virtual ~GameScene() override;
+	~GameScene() override = default;
 
-	virtual bool Update() override;
+	void OnInit() override;
+	void OnDestroy() override;
+
+	bool Update() override;
 
 private:
 	ScreenManager& screenManager;

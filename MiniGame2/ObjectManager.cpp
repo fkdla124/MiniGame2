@@ -1,4 +1,4 @@
-#include "ObjectManager.h"
+﻿#include "ObjectManager.h"
 #include "SceneManager.h"
 #include "GameClearScene.h"
 #include "GameOverScene.h"
@@ -35,13 +35,13 @@ void ObjectManager::Update()
 {
 	objectCount = (int)objectList.size();
 
-	// Update Object
+	// 오브젝트 로직 Update
 	for (auto it = objectList.begin(); it != objectList.end(); ++it)
 	{
 		(*it)->Update();
 	}
 
-	// Object Collision and Destroy Marking
+	// 오브젝트 충돌, 파괴 마킹
 	for (auto it = objectList.begin(); it != objectList.end(); ++it)
 	{
 		for (auto targetIt = objectList.begin(); targetIt != objectList.end(); ++targetIt)
@@ -56,7 +56,7 @@ void ObjectManager::Update()
 		}
 	}
 
-	// Destroy Object
+	// 오브젝트 파괴
 	for (auto it = objectList.begin(); it != objectList.end();)
 	{
 		if ((*it)->Destroyable())

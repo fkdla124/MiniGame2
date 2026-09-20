@@ -42,3 +42,13 @@ bool TitleScene::Update()
 	// Keep Update
 	return true;
 }
+
+void TitleScene::OnInit()
+{
+
+}
+
+void TitleScene::OnDestroy()
+{
+	objectManager.Clear();
+}

@@ -16,12 +16,12 @@ private:
 	~SceneManager();
 
 private:
-	static SceneManager instance;
-
-private:
 	BaseScene* scene;
 	BaseScene* nextScene;
 
 private:
 	bool isRunning;
+
+private:
+	static SceneManager instance;
 };

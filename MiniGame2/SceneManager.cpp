@@ -1,4 +1,4 @@
-#include "SceneManager.h"
+﻿#include "SceneManager.h"
 #include "TitleScene.h"
 
 #include <windows.h>
@@ -11,22 +11,24 @@ SceneManager& SceneManager::GetInstance()
 	return instance;
 }
 
-SceneManager::SceneManager() : nextScene(nullptr)
+SceneManager::SceneManager() : nextScene(nullptr), isRunning(true)
 {
 	timeBeginPeriod(1);
 
 	scene = new TitleScene;
-
-	isRunning = true;
+	scene->OnInit();
 }
 
 SceneManager::~SceneManager()
 {
 	delete scene;
+
+	timeEndPeriod(1);
 }
 
 void SceneManager::Run()
 {
+	// ExitScene에서 false 반환후 게임종료를 위해
 	bool keepUpdate = scene->Update();
 	
 	if (keepUpdate == false)
@@ -34,8 +36,12 @@ void SceneManager::Run()
 
 	if (nextScene)
 	{
+		scene->OnDestroy();
 		delete scene;
+
 		scene = nextScene;
+		scene->OnInit();
+
 		nextScene = nullptr;
 	}
 }

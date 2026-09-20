@@ -4,18 +4,8 @@
 
 GameScene::GameScene() : 
 	screenManager(ScreenManager::GetInstance()), objectManager(ObjectManager::GetInstance()),
-	fpsManager(FPSManager::GetInstance()), timeManager(TimeManager::GetInstance())
-{
-	objectManager.CreateObject(new Player(ScreenManager::row / 4 * 3, ScreenManager::col / 2));
-	objectManager.CreateObject(new Enemy(ScreenManager::row / 3 - 2, ScreenManager::col / 4 * 1));
-	objectManager.CreateObject(new Enemy(ScreenManager::row / 3 - 4, ScreenManager::col / 4 * 2));
-	objectManager.CreateObject(new Enemy(ScreenManager::row / 3 + 2, ScreenManager::col / 4 * 3));
-}
+	fpsManager(FPSManager::GetInstance()), timeManager(TimeManager::GetInstance()) { }
 
-GameScene::~GameScene()
-{
-	objectManager.Clear();
-}
 
 bool GameScene::Update()
 {
@@ -39,4 +29,17 @@ bool GameScene::Update()
 
 	// Keep Update
 	return true;
+}
+
+void GameScene::OnInit()
+{	
+	objectManager.CreateObject(new Player(ScreenManager::row / 4 * 3, ScreenManager::col / 2));
+	objectManager.CreateObject(new Enemy(ScreenManager::row / 3 - 2, ScreenManager::col / 4 * 1));
+	objectManager.CreateObject(new Enemy(ScreenManager::row / 3 - 4, ScreenManager::col / 4 * 2));
+	objectManager.CreateObject(new Enemy(ScreenManager::row / 3 + 2, ScreenManager::col / 4 * 3));
+}
+
+void GameScene::OnDestroy()
+{
+	objectManager.Clear();
 }

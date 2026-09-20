@@ -38,8 +38,8 @@ void ScreenManager::Flip()
 
 	printf("LogicFPS : %-5d\n", FPSManager::currentLogicFPS);
 	printf("RenderFPS : %-5d\n", FPSManager::currentRenderFPS);
-	printf("ObjectCount : %-5d\n", ObjectManager::objectCount);
-	printf("HP:%d\n", ObjectManager::GetInstance().GetPlayerHP());
+	printf("ObjectCount : %-20d", ObjectManager::objectCount);
+	printf("HP : %d\n", ObjectManager::GetInstance().GetPlayerHP());
 	
 
 	// 화면 초기화.

@@ -8,7 +8,13 @@
 
 Enemy::Enemy(int row, int col) 
 	: BaseObject(row, col, ObjectType::Enemy), 
-	hp(3), spawnCol(col), moveDirection(1), moveTimer(0), moveSpeed(1), shotTimer(0.0f), shotCooldown(1.0f) { }
+	hp(3), 
+	spawnCol(col), 
+	moveDirection(1), 
+	moveTimer(0), 
+	moveSpeed(3), 
+	shotTimer(0.0f), 
+	shotCooldown(0.5f) { }
 
 void Enemy::Update()
 {

@@ -47,3 +47,13 @@ bool GameClearScene::Update()
 	// Keep Update
 	return true;
 }
+
+void GameClearScene::OnInit()
+{
+
+}
+
+void GameClearScene::OnDestroy()
+{
+	objectManager.Clear();
+}

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "BaseScene.h"
 #include "ScreenManager.h"
@@ -12,6 +12,9 @@ class ExitScene : public BaseScene
 public:
 	ExitScene();
 	~ExitScene() override = default;
+
+	void OnInit() override;
+	void OnDestroy() override;
 
 	bool Update() override;
 

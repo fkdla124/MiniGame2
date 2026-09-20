@@ -6,12 +6,11 @@ class PlayerBullet : public BaseObject
 {
 public:
 	PlayerBullet(int row, int col);
-	virtual ~PlayerBullet() override = default;
+	~PlayerBullet() override = default;
 
-	virtual void Update() override;
-	virtual void Render() override;
-
-	virtual void OnCollision(BaseObject* object) override;
+	void Update() override;
+	void Render() override;
+	void OnCollision(BaseObject* object) override;
 
 private:
 	int moveTimer;

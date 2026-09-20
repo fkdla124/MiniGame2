@@ -19,14 +19,10 @@ FPSManager::FPSManager()
 	QueryPerformanceCounter(&logicFPSReferenceTsc);
 	QueryPerformanceCounter(&renderFPSReferenceTsc);
 
+	// 목표 FPS에 맞는 프레임당 주어진 TSC 계산.
 	tscPerFrame = static_cast<int64_t>((static_cast<double>(1000) / fps) * (freq.QuadPart / 1000));
 }
 #pragma warning(default:26495)
-
-//int64_t FPSManager::GetTscPerFrame()
-//{
-//	return tscPerFrame;
-//}
 
 void FPSManager::LimitFPS()
 {
