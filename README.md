@@ -19,6 +19,7 @@
 - 객체지향
 - 가상함수의 다형성을 활용한 프레임워크적 사고
 - 직접 만든 Iterator + List
+- LogicFPS 보장, FPS 제한, 렌더링 스킵 기법
 
 <br>
 
@@ -35,24 +36,27 @@
 ### 게임 진행 흐름. 
 TitleScene -> GameScene -> Game Clear/Over Scene -> ExitScene
 
+### List
+- 직접 만든 Iterator 기반 List
+
 ### Manager
-- ConsoleManager
-- FPSManager
-- ObjectManager
-- SceneManager
-- ScreenManager
-- TimeManager
+- ConsoleManager -- 콘솔 커서 숨김 및 이동
+- FPSManager -- FPS 제한 및 렌더링 스킵
+- ObjectManager -- 오브젝트 관리, 충돌처리
+- SceneManager -- 씬 처리
+- ScreenManager -- 화면 출력
+- TimeManager -- deltaTime 계산
 
 ### Object
-- ObjectType
-- BaseObject
+- ObjectType -- 오브젝트 타입 enum class
+- BaseObject -- 베이스 오브젝트
 - Player
 - PlayerBullet
 - Enemy
 - EnemyBullet
 
 ### Scene
-- BaseScene
+- BaseScene -- 베이스 씬
 - TitleScene
 - GameScene
 - Game Clear/Over Scene
@@ -85,3 +89,21 @@ BaseScene에 OnInit(), OnDestroy() 가상함수를 만들어 씬마다 오버라
 생성자, 소멸자를 활용하여 씬마다 초기화, 소멸 작업을 지정하는 것보다 <br>
 OnInit(), OnDestroy() 멤버함수를 따로 만들어 관리하는 방법이  <br>
 작업의 순서를 내가 원하는 시점으로 관리하기 용이하다는 점을 배움. <br>
+
+<br>
+
+### [FPS 제한이 정확하지 못한 문제]
+
+기존에 FPS 제한에 1ms 해상도 타이머와 Sleep() 함수를 사용. <br>
+Sleep() 함수는 1ms 단위의 인자를 받을 수 있는데, 60fps는 1프레임에 16.6666.... ms를 필요로 함. <br>
+소수점 아래 단위를 정확하게 계산하기 어려운 문제 발생. <br>
+
+### 해결방안
+
+사용하는 타이머를 QueryPerformanceCounter()로 변경. 현재 QPC의 해상도는 100ns이며 기존보다 소수점 아래 4자리까지 더 수용 가능. <br>
+Sleep() 함수대신 더 넓은 단위를 지원하는 std::this_thread::sleep_for() + std::chrono::nanoseconds() 사용 <br>
+
+### 배운 점
+
+더 높은 해상도를 가지는 타이머와 Sleep 함수를 사용하여 정밀한 FPS 제한 방법을 배움. <br>
+
