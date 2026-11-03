@@ -18,7 +18,7 @@
 - C++
 - 객체지향
 - 가상함수의 다형성을 활용한 프레임워크적 사고
-- 직접 만든 Iterator + List
+- 직접 만든 Iterator + List -> [LinkedList](https://github.com/fkdla124/LinkedList)
 - LogicFPS 보장, FPS 제한, 렌더링 스킵 기법
 
 <br>
